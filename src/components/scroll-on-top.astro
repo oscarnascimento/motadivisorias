@@ -1,0 +1,19 @@
+---
+interface Props {
+  showBuyNow?: boolean;
+}
+
+const { showBuyNow = false } = Astro.props;
+const bottomClass = showBuyNow ? 'bottom-22' : 'bottom-15';
+---
+
+<button
+  id="scrollToTopBtn"
+  class:list={[
+    'btn-secondary/20 btn absolute fixed end-15 z-[3] hidden btn-circle motion-preset-slide-right btn-soft motion-delay-100 motion-duration-800',
+    bottomClass
+  ]}
+  aria-label="Circle Soft Icon Button"
+>
+  <span class="icon-[tabler--chevron-up] size-5 shrink-0"></span>
+</button>

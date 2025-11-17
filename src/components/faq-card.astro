@@ -1,0 +1,27 @@
+---
+import type { FAQItem } from '@/types/index.ts';
+
+export interface Props extends FAQItem {}
+
+const { question, answer, learnMoreLink = '#', learnMoreText = 'Learn more' } = Astro.props;
+---
+
+<div class="m-2 carousel-slide">
+  <div class="rounded-box p-4 text-center hover:bg-base-100 hover:ring hover:ring-primary">
+    <h5 class="mb-2 text-xl font-semibold text-base-content">
+      {question}
+    </h5>
+    <p class="text-base-content/80">
+      {answer}
+    </p>
+    <div class="group mt-5 flex items-center justify-center gap-2">
+      <a href={learnMoreLink} class="link link-animated font-normal link-primary">
+        {learnMoreText}
+      </a>
+      <span
+        class="icon-[tabler--arrow-narrow-right] size-5 shrink-0 text-primary transition-transform group-hover:-translate-x-1 rtl:rotate-180"
+      >
+      </span>
+    </div>
+  </div>
+</div>

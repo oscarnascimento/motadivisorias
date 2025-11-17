@@ -1,0 +1,59 @@
+---
+// Customer testimonials component
+import TestimonialCard from '@/components/testimonial-card.astro';
+import { siteConfig } from '@/config';
+import { testimonialsData, testimonialsSectionContent } from '@/data/testimonials';
+---
+
+<section id="testimonials">
+  <div class="bg-base-200 py-8 sm:py-16 lg:py-24">
+    <div class={`${siteConfig.container}`}>
+      <div
+        id="multi-slide"
+        data-carousel='{ "loadingClasses": "opacity-0", "slidesQty": { "xs": 1, "md": 2 } }'
+        class="relative flex w-full gap-12 max-lg:flex-col md:gap-16 lg:items-center lg:gap-24"
+      >
+        <div>
+          <div class="space-y-4">
+            <h2 class="text-2xl font-semibold text-base-content md:text-3xl lg:text-4xl">
+              {testimonialsSectionContent.title}
+            </h2>
+            <p class="text-xl text-base-content/80">
+              {testimonialsSectionContent.description}
+            </p>
+            <div class="flex gap-4">
+              <button
+                class="carousel-prev btn relative btn-square btn-sm btn-primary hover:text-white carousel-disabled:btn-outline carousel-disabled:opacity-100"
+                disabled="disabled"
+              >
+                <span class="icon-[tabler--arrow-left] size-5"></span>
+              </button>
+              <button
+                class="carousel-next btn relative btn-square btn-sm btn-primary hover:text-white carousel-disabled:btn-outline carousel-disabled:opacity-100"
+              >
+                <span class="icon-[tabler--arrow-right] size-5"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="carousel rounded-box">
+          <div class="carousel-body gap-6 opacity-0">
+            {
+              testimonialsData.map(testimonial => (
+                <TestimonialCard
+                  id={testimonial.id}
+                  name={testimonial.name}
+                  role={testimonial.role}
+                  avatar={testimonial.avatar}
+                  comment={testimonial.comment}
+                  stars={testimonial.stars}
+                  alt={testimonial.alt}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

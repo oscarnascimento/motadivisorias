@@ -1,0 +1,151 @@
+---
+// Client-side scripts component
+---
+
+<script>
+  import 'tailwindcss-intersect/dist/observer.min.js';
+  import 'flyonui/flyonui.js';
+</script>
+
+<!-- Counter animation script -->
+<script>
+  // Counter animation for stats
+  function animateCounter(element: HTMLElement, target: number, duration: number = 2000): void {
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        let displayValue = target;
+        let suffix = '+';
+
+        if (target >= 10000) {
+          displayValue = Math.floor(target / 1000);
+          suffix = 'k+';
+        } else if (target >= 5000) {
+          displayValue = Math.floor(target / 1000);
+          suffix = 'k+';
+        } else if (target >= 1000) {
+          displayValue = Math.floor(target / 1000);
+          suffix = 'k+';
+        }
+
+        element.textContent = displayValue + suffix;
+        clearInterval(timer);
+      } else {
+        let displayValue = Math.floor(current);
+        let suffix = '+';
+
+        if (target >= 1000) {
+          displayValue = Math.floor(current / 1000);
+          suffix = 'k+';
+          if (displayValue === 0) {
+            displayValue = Math.floor(current);
+            suffix = '+';
+          }
+        }
+
+        element.textContent = displayValue + suffix;
+      }
+    }, 16);
+  }
+
+  // Initialize counters when they come into view
+  function initCounters(): void {
+    const counters = [
+      { id: 'count1', target: 7 },
+      { id: 'count2', target: 30 },
+      { id: 'count3', target: 500 },
+      { id: 'count4', target: 10 } // Will display as 10k+
+    ];
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counterId = entry.target.id;
+            const counter = counters.find(c => c.id === counterId);
+            if (counter && entry.target instanceof HTMLElement) {
+              // Use different target values for k+ display
+              let animationTarget = counter.target;
+              if (counter.id === 'count4') animationTarget = 10000; // 10k+
+
+              animateCounter(entry.target, animationTarget);
+              observer.unobserve(entry.target);
+            }
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    counters.forEach(counter => {
+      const element = document.getElementById(counter.id);
+      if (element) {
+        // Set initial display values to match final format
+        if (counter.id === 'count4') {
+          element.textContent = '0k+';
+        } else {
+          element.textContent = '0+';
+        }
+        observer.observe(element);
+      }
+    });
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', initCounters);
+</script>
+
+<!-- Scroll-based navigation highlighting -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('section'));
+    const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.nav-link'));
+
+    const handleScroll = (): void => {
+      let current = '';
+
+      sections.forEach((section: HTMLElement) => {
+        const sectionTop = section.offsetTop - 80; // Adjust for fixed navbar height
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id') || '';
+        }
+      });
+
+      navLinks.forEach((link: HTMLAnchorElement) => {
+        link.classList.remove('text-primary');
+        const href = link.getAttribute('href');
+        if (href === '#' + current) {
+          link.classList.add('text-primary');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    // Only proceed if button exists
+    if (scrollToTopBtn) {
+      scrollToTopBtn.classList.add('hidden');
+
+      scrollToTopBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      window.onscroll = function () {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+          scrollToTopBtn.classList.remove('hidden');
+        } else {
+          scrollToTopBtn.classList.add('hidden');
+        }
+      };
+    }
+  });
+</script>

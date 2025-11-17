@@ -1,0 +1,52 @@
+---
+// Call to Action section
+import OptimizedImage from '@/components/shared/optimized-image.astro';
+import { siteConfig } from '@/config';
+import { ctaData } from '@/data/cta';
+---
+
+<section id="cta">
+  <div class="bg-base-100 py-8 sm:py-16 lg:py-24">
+    <div class={`${siteConfig.container}`}>
+      <div class="overflow-hidden rounded-3xl bg-linear-to-r from-primary/30 to-error/30 p-px">
+        <div class="rounded-3xl bg-base-100 p-0.5">
+          <div
+            class="relative rounded-3xl bg-linear-to-r from-primary/6 to-error/6 to-50% p-8 lg:p-16"
+          >
+            <div
+              class="flex justify-between gap-8 max-md:flex-col max-sm:items-center max-sm:text-center md:items-center"
+            >
+              <div class="max-w-xs space-y-4 lg:max-w-lg">
+                <h2 class="text-xl font-bold text-base-content md:text-3xl">
+                  {ctaData.content.title}
+                </h2>
+                <p class="text-base-content/80">
+                  {ctaData.content.description}
+                </p>
+                <a class="btn btn-gradient btn-primary" href={ctaData.content.buttonHref}>
+                  {ctaData.content.buttonText}
+                  <span class="icon-[tabler--arrow-right]"></span>
+                </a>
+              </div>
+              <OptimizedImage
+                src={ctaData.images.mint.src}
+                alt={ctaData.images.mint.alt}
+                loading="lazy"
+                class={ctaData.images.mint.class}
+              />
+              <OptimizedImage
+                src={ctaData.images.pizza.src}
+                alt={ctaData.images.pizza.alt}
+                loading="lazy"
+                class={ctaData.images.pizza.class}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Separator -->
+<div class="mx-auto h-px w-3/5 bg-linear-to-r from-transparent via-primary/20 to-transparent"></div>

@@ -1,0 +1,71 @@
+---
+import Logo from '@/components/shared/logo.astro';
+import { siteConfig } from '@/config';
+
+const footerLinks = [
+  { label: 'About', href: '#about-us' },
+  { label: 'Services', href: '#services' },
+  { label: 'Team', href: '#team' },
+  { label: 'FAQ', href: '#faqs' }
+];
+---
+
+<footer>
+  <div class={`${siteConfig.container} mx-auto px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8`}>
+    <div class="flex items-center justify-between gap-3 max-md:flex-col">
+      <a class="flex items-center gap-3 text-xl font-semibold text-base-content" href="#">
+        <Logo />
+        {siteConfig.demoName}
+      </a>
+      <nav class="flex items-center gap-6">
+        {
+          footerLinks.map(link => (
+            <a href={link.href} class="link link-animated font-medium text-base-content/80">
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+      <div class="flex h-5 gap-4 text-base-content">
+        <a
+          href="https://discord.com/invite/kBHkY7DekX"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Discord"
+        >
+          <span class="icon-[tabler--brand-discord] size-5"></span>
+        </a>
+        <a
+          href="https://x.com/flyonui"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Twitter"
+        >
+          <span class="icon-[tabler--brand-x] size-5"></span>
+        </a>
+        <a
+          href="https://github.com/themeselection/flyonui"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Github"
+        >
+          <span class="icon-[tabler--brand-github] size-5"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class={`${siteConfig.container} py-8 `}>
+    <div class="text-center text-base text-base-content">
+      &copy;2025
+      <a href={siteConfig.creatorUrl} target="_blank" class="text-primary">
+        {siteConfig.creatorName}
+      </a>
+      ,
+      <br class="md:hidden" />
+      Made With ❤️ for better web.
+    </div>
+  </div>
+</footer>

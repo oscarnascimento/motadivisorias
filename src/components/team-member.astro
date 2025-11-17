@@ -1,0 +1,22 @@
+---
+import OptimizedImage from '@/components/shared/optimized-image.astro';
+import type { TeamMember } from '@/types/index.ts';
+
+export interface Props extends Omit<TeamMember, 'id'> {}
+
+const { name, position, description, image, alt = name } = Astro.props;
+---
+
+<div class="card-border card h-max shadow-none hover:border-primary">
+  <figure class="bg-base-200 pt-10.5">
+    <OptimizedImage src={image} loading="lazy" alt={alt} class="h-60 w-auto" />
+  </figure>
+  <div class="card-body gap-3 p-5">
+    <h3 class="text-lg font-medium text-base-content">{name}</h3>
+    <div class="divider"></div>
+    <div>
+      <p class="mb-1 font-medium text-base-content/80">{position}</p>
+      <p class="text-base-content/80">{description}</p>
+    </div>
+  </div>
+</div>

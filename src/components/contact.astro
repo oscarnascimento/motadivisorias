@@ -1,0 +1,149 @@
+---
+// Contact section component
+import { siteConfig } from '@/config';
+import { contactData } from '@/data/contact';
+---
+
+<section id="contact-us">
+  <div class="bg-base-200 py-8 sm:py-16 lg:py-24">
+    <div class={`${siteConfig.container}`}>
+      <!-- Heading Section -->
+      <div class="mb-12 text-center sm:mb-16 lg:mb-24">
+        <h2 class="mb-4 text-2xl font-semibold text-base-content md:text-3xl lg:text-4xl">
+          {contactData.section.title}
+        </h2>
+        <p class="text-xl text-base-content/80">
+          {contactData.section.description}
+        </p>
+      </div>
+      <div class="card shadow-md">
+        <div class="card-body grid gap-10 lg:grid-cols-7">
+          <!-- Form Section -->
+          <div class="lg:col-span-4">
+            <h2 class="mb-6 text-3xl font-semibold text-base-content">{contactData.form.title}</h2>
+            <form class="space-y-6" onsubmit="return false;">
+              <div class="flex gap-6 max-md:flex-col">
+                <div class="w-full">
+                  <label class="label-text" for={contactData.form.fields.name.id}>
+                    {contactData.form.fields.name.label}
+                  </label>
+                  <div class="input input-lg">
+                    <input
+                      type="text"
+                      class="grow"
+                      placeholder={contactData.form.fields.name.placeholder}
+                      id={contactData.form.fields.name.id}
+                    />
+                    <span
+                      class="my-auto ms-3 icon-[tabler--user] size-5.5 shrink-0 text-base-content/80"
+                    >
+                    </span>
+                  </div>
+                </div>
+                <div class="w-full">
+                  <label class="label-text" for={contactData.form.fields.phone.id}>
+                    {contactData.form.fields.phone.label}
+                  </label>
+                  <div class="input input-lg">
+                    <input
+                      type="text"
+                      class="grow"
+                      placeholder={contactData.form.fields.phone.placeholder}
+                      id={contactData.form.fields.phone.id}
+                    />
+                    <span
+                      class="my-auto ms-3 icon-[tabler--phone] size-5.5 shrink-0 text-base-content/80"
+                    >
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex gap-6 max-md:flex-col">
+                <div class="w-full">
+                  <label class="label-text" for={contactData.form.fields.date.id}>
+                    {contactData.form.fields.date.label}
+                  </label>
+                  <div class="input input-lg">
+                    <input
+                      type="text"
+                      class="flatpickr-date grow"
+                      placeholder={contactData.form.fields.date.placeholder}
+                      id={contactData.form.fields.date.id}
+                    />
+                    <span
+                      class="my-auto ms-3 icon-[tabler--calendar-event] size-5.5 shrink-0 text-base-content/80"
+                    >
+                    </span>
+                  </div>
+                </div>
+                <div class="w-full">
+                  <label class="label-text" for={contactData.form.fields.time.id}>
+                    {contactData.form.fields.time.label}
+                  </label>
+                  <div class="input input-lg">
+                    <input
+                      type="text"
+                      class="grow"
+                      placeholder={contactData.form.fields.time.placeholder}
+                      id={contactData.form.fields.time.id}
+                    />
+                    <span
+                      class="my-auto ms-3 icon-[tabler--calendar-time] size-5.5 shrink-0 text-base-content/80"
+                    >
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label class="label-text" for={contactData.form.fields.message.id}>
+                  {contactData.form.fields.message.label}
+                </label>
+                <div class="textarea">
+                  <textarea
+                    class="grow resize-none"
+                    aria-label="Textarea"
+                    placeholder={contactData.form.fields.message.placeholder}
+                    id={contactData.form.fields.message.id}
+                  >
+                  </textarea>
+                  <span
+                    class="mx-4 mt-2 icon-[tabler--message-circle-2] size-6 shrink-0 text-base-content/80"
+                  >
+                  </span>
+                </div>
+              </div>
+              <button type="submit" class="btn w-full btn-gradient btn-primary">
+                {contactData.form.buttonText}
+              </button>
+            </form>
+          </div>
+          <!-- Contact Information -->
+          <div class="space-y-6 lg:col-span-3">
+            <div class="rounded-box border border-base-content/20 p-6 text-center">
+              <h3 class="mb-4 text-xl font-semibold text-base-content">
+                {contactData.info.email.title}
+              </h3>
+              <p class="mb-2 break-all text-base-content/80">{contactData.info.email.email}</p>
+              <p class="text-base-content/80">{contactData.info.email.phone}</p>
+            </div>
+            <div class="rounded-box border border-base-content/20 p-6 text-center">
+              <h3 class="mb-4 text-xl font-semibold text-base-content">
+                {contactData.info.location.title}
+              </h3>
+              {
+                contactData.info.location.address.map(line => (
+                  <p class="text-base-content/80">{line}</p>
+                ))
+              }
+            </div>
+            <p class="text-center font-medium text-base-content">
+              {contactData.info.hours.text}
+              <span class="text-primary">{contactData.info.hours.hours}</span>
+              {contactData.info.hours.schedule}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

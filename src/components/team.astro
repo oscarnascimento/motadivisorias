@@ -1,0 +1,35 @@
+---
+import TeamMember from '@/components/team-member.astro';
+import { siteConfig } from '@/config';
+import { teamMembers, teamSectionContent } from '@/data/team.ts';
+---
+
+<!-- Team -->
+<section id="team">
+  <div class="bg-base-100 py-8 sm:py-16 lg:py-24">
+    <div class={`${siteConfig.container}`}>
+      <div class="mb-12 text-center sm:mb-16 lg:mb-24">
+        <h2 class="mb-4 text-2xl font-semibold text-base-content md:text-3xl lg:text-4xl">
+          {teamSectionContent.title}
+        </h2>
+        <p class="text-xl text-base-content/80">
+          {teamSectionContent.description}
+        </p>
+      </div>
+      <!-- Team Members -->
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {
+          teamMembers.map(member => (
+            <TeamMember
+              name={member.name}
+              position={member.position}
+              description={member.description}
+              image={member.image}
+              alt={member.alt}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

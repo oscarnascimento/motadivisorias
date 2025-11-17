@@ -1,0 +1,47 @@
+---
+import OptimizedImage from '@/components/shared/optimized-image.astro';
+import type { TestimonialData } from '@/types/index.ts';
+
+export interface Props extends TestimonialData {}
+
+const { name, role, avatar, comment, stars, alt = name } = Astro.props;
+---
+
+<div class="carousel-slide">
+  <div
+    class="card-border transition-border card h-full shadow-none duration-300 hover:border-primary"
+  >
+    <div class="card-body gap-5">
+      <!-- User Info -->
+      <div class="flex items-center gap-3">
+        <div class="avatar">
+          <div class="size-10 rounded-full">
+            <OptimizedImage src={avatar} alt={alt} loading="lazy" />
+          </div>
+        </div>
+        <div>
+          <h4 class="font-medium text-base-content">{name}</h4>
+          <p class="text-sm text-base-content/80">{role}</p>
+        </div>
+      </div>
+
+      <!-- Rating Stars -->
+      <div class="flex gap-1">
+        {
+          stars.map(starType =>
+            starType === 'filled' ? (
+              <span class="icon-[tabler--star-filled] size-6 shrink-0 text-warning" />
+            ) : starType === 'half' ? (
+              <span class="icon-[tabler--star-half-filled] size-6 shrink-0 text-warning" />
+            ) : (
+              <span class="icon-[tabler--star] size-6 shrink-0 text-warning" />
+            )
+          )
+        }
+      </div>
+
+      <!-- Comment -->
+      <p class="text-base-content/80">{comment}</p>
+    </div>
+  </div>
+</div>

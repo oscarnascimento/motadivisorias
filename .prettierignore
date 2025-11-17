@@ -1,0 +1,9 @@
+dist
+dist-obfuscated
+node_modules
+build
+.vercel
+.astro
+css-obfuscator
+pnpm-lock.yaml
+package-lock.json

@@ -1,0 +1,115 @@
+---
+import Logo from '@/components/shared/logo.astro';
+import { siteConfig } from '@/config';
+
+interface NavItem {
+  label: string;
+  href: string;
+  class: string;
+}
+
+const navItems: NavItem[] = [
+  { label: 'Home', href: '#home', class: 'hover:text-primary nav-link' },
+  {
+    label: 'About Us',
+    href: '#about-us',
+    class: 'hover:text-primary nav-link'
+  },
+  {
+    label: 'Services',
+    href: '#services',
+    class: 'hover:text-primary nav-link'
+  },
+  { label: 'Team', href: '#team', class: 'hover:text-primary nav-link' },
+  { label: 'FAQS', href: '#faqs', class: 'hover:text-primary nav-link' }
+];
+---
+
+<header class="fixed top-0 z-10 w-full border-b border-base-content/20 bg-base-100 py-0.25">
+  <nav class={`navbar rounded-b-xl ${siteConfig.container} `}>
+    <div class="w-full lg:flex lg:items-center lg:gap-2">
+      <div class="navbar-start items-center justify-between max-lg:w-full">
+        <a class="flex items-center gap-3 text-xl font-semibold text-base-content" href="#">
+          <Logo />
+          {siteConfig.demoName}
+        </a>
+        <div class="flex items-center gap-5 lg:hidden">
+          <a href="#contact-us" class="btn btn-sm btn-primary">Book A Table</a>
+          <button
+            type="button"
+            class="collapse-toggle btn btn-square btn-outline btn-secondary"
+            data-collapse="#navbar-block-4"
+            aria-controls="navbar-block-4"
+            aria-label="Toggle navigation"
+          >
+            <span class="icon-[tabler--menu-2] size-5.5 collapse-open:hidden"></span>
+            <span class="icon-[tabler--x] hidden size-5.5 collapse-open:block"></span>
+          </button>
+        </div>
+      </div>
+      <div
+        id="navbar-block-4"
+        class="transition-height collapse hidden grow overflow-hidden font-medium duration-300 lg:flex lg:navbar-center"
+      >
+        <div
+          class="flex gap-6 text-base text-base-content max-lg:mt-4 max-lg:flex-col lg:items-center"
+        >
+          <a href="#home" class="nav-link hover:text-primary">Home</a>
+          <a href="#about-us" class="nav-link hover:text-primary">About Us</a>
+          <a href="#services" class="nav-link hover:text-primary">Services</a>
+          <a href="#team" class="nav-link hover:text-primary">Team</a>
+          <a href="#faqs" class="nav-link hover:text-primary">FAQS</a>
+        </div>
+      </div>
+      <div class="navbar-end max-lg:hidden">
+        <a href="#contact-us" class="btn btn-primary">Book A Table</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- <header class="fixed top-0 z-10 w-full border-b border-base-content/20 bg-base-100 py-px">
+  <nav class={`navbar ${siteConfig.container} rounded-b-xl`}>
+    <div class="w-full lg:flex lg:items-center lg:gap-2">
+      <div class="navbar-start items-center justify-between max-lg:w-full">
+        <a class="flex items-center gap-3 text-xl font-semibold text-base-content" href="#">
+          <Logo />
+          {siteConfig.demoName}
+        </a>
+        <div class="flex items-center gap-5 lg:hidden">
+          <a href="#contact-us" class="btn btn-sm btn-primary">Book A Table</a>
+          <button
+            type="button"
+            class="collapse-toggle btn btn-square btn-outline btn-secondary"
+            data-collapse="#navbar-block-4"
+            aria-controls="navbar-block-4"
+            aria-label="Toggle navigation"
+          >
+            <span class="icon-[tabler--menu-2] size-5.5 collapse-open:hidden"></span>
+            <span class="icon-[tabler--x] hidden size-5.5 collapse-open:block"></span>
+          </button>
+        </div>
+      </div>
+      <div
+        id="
+        navbar-block-4"
+        class="transition-height collapse hidden grow overflow-hidden font-medium duration-300 lg:flex lg:navbar-center"
+      >
+        <div
+          class="flex gap-6 text-base text-base-content max-lg:mt-4 max-lg:flex-col lg:items-center"
+        >
+          {
+            navItems.map((item: NavItem) => (
+              <a href={item.href} class={item.class}>
+                {item.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div class="navbar-end max-lg:hidden">
+        <a href="#contact-us" class="btn btn-primary">Book A Table</a>
+      </div>
+    </div>
+  </nav>
+</header> -->
