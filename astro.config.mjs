@@ -4,9 +4,8 @@ import { defineConfig } from 'astro/config';
 const isProduction = process.env.NODE_ENV === 'production';
 
 export default defineConfig({
-  // GitHub Pages configuration
-  site: 'https://oscarnascimento.github.io',
-  base: '/motadivisorias',
+  // GitHub Pages configuration with custom domain
+  site: 'https://motadivisorias.com.br',
 
   // Use static output for all builds
   output: 'static',
