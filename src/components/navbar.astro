@@ -9,7 +9,7 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: 'Home', href: '#home', class: 'hover:text-primary nav-link' },
+  // { label: 'Home', href: '#home', class: 'hover:text-primary nav-link' },
   {
     label: 'About Us',
     href: '#about-us',
@@ -20,8 +20,8 @@ const navItems: NavItem[] = [
     href: '#services',
     class: 'hover:text-primary nav-link'
   },
-  { label: 'Team', href: '#team', class: 'hover:text-primary nav-link' },
-  { label: 'FAQS', href: '#faqs', class: 'hover:text-primary nav-link' }
+  // { label: 'Team', href: '#team', class: 'hover:text-primary nav-link' },
+  // { label: 'FAQS', href: '#faqs', class: 'hover:text-primary nav-link' }
 ];
 ---
 
@@ -34,7 +34,7 @@ const navItems: NavItem[] = [
           {siteConfig.demoName}
         </a>
         <div class="flex items-center gap-5 lg:hidden">
-          <a href="#contact-us" class="btn btn-sm btn-primary">Book A Table</a>
+          <a href="https://wa.me/559189359657" target="_blank" class="btn btn-sm btn-primary">Book A Table</a>
           <button
             type="button"
             class="collapse-toggle btn btn-square btn-outline btn-secondary"
@@ -54,15 +54,15 @@ const navItems: NavItem[] = [
         <div
           class="flex gap-6 text-base text-base-content max-lg:mt-4 max-lg:flex-col lg:items-center"
         >
-          <a href="#home" class="nav-link hover:text-primary">Home</a>
-          <a href="#about-us" class="nav-link hover:text-primary">About Us</a>
-          <a href="#services" class="nav-link hover:text-primary">Services</a>
-          <a href="#team" class="nav-link hover:text-primary">Team</a>
-          <a href="#faqs" class="nav-link hover:text-primary">FAQS</a>
+          <a href="#home" class="nav-link hover:text-primary">Início</a>
+          <a href="#about-us" class="nav-link hover:text-primary">Sobre Nós</a>
+          <a href="#services" class="nav-link hover:text-primary">Serviços</a>
+          <!--<a href="#team" class="nav-link hover:text-primary">Team</a>-->
+          <!--<a href="#faqs" class="nav-link hover:text-primary">FAQS</a>-->
         </div>
       </div>
       <div class="navbar-end max-lg:hidden">
-        <a href="#contact-us" class="btn btn-primary">Book A Table</a>
+        <a href="https://wa.me/559189359657" target="_blank" class="btn btn-primary">WhatsApp</a>
       </div>
     </div>
   </nav>

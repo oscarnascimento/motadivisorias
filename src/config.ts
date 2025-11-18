@@ -38,13 +38,13 @@ interface SiteConfig {
   // Fonts
   fonts: Fonts;
 
-  
+
 }
 
 export const siteConfig: SiteConfig = {
   // Site Metadata
   creatorName: 'FlyonUI',
-  demoName: 'Restaurant',
+  demoName: 'Mota Divisórias',
   creatorUrl: 'https://flyonui.com',
   templateName: 'Restaurant Landing',
   templateSuffix: 'Powered by FlyonUI',
