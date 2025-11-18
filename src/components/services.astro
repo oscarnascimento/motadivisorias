@@ -18,30 +18,79 @@ interface Props {
 
 const {
   id = 'services',
-  heading = 'Crafting Moments, Serving You',
-  subheading = `From unforgettable flavors to seamless service, we're here to make every meal feel special. Whether you dine in, take out, or order online we've got your cravings covered.`,
+  heading = 'Nossas Especialidades',
+  subheading = null,
   items = [
     {
-      title: 'Buffet Service',
-      description:
-        "Navigate effortlessly with our intuitive design, optimized for all devices. Enjoy a seamless experience whether you're on a computer or mobile device.",
-      href: '#',
-      img: { src: '/assets/img/free-blog-1.png', alt: 'Vegetable Market', loading: 'lazy' }
+      "title": "Instalação de Divisórias Eucatex",
+      "description": "",
+      "href": "#",
+      "img": {
+        "src": "assets/img/servicos-divisorias-eucatex.jpg",
+        "alt": "Instalação de Divisórias Eucatex",
+        "loading": "lazy"
+      }
     },
     {
-      title: 'Food delivery',
-      description:
-        'Enjoy a safe shopping experience with multiple payment options and SSL encryption. Your personal and financial information is always protected.',
-      href: '#',
-      img: { src: '/assets/img/free-blog-2.png', alt: 'Delivery Service', loading: 'lazy' }
+      "title": "Divisórias/Forros de Gesso",
+      "description": "",
+      "href": "#",
+      "img": {
+        "src": "assets/img/servicos-gesso.jpg",
+        "alt": "Serviço de Divisórias/Forros de Gesso",
+        "loading": "lazy"
+      }
     },
     {
-      title: 'Cafeteria',
-      description:
-        'Find products quickly with advanced filters, sorting options, and suggestion. Save time and effortlessly locate exactly what you need with ease.',
-      href: '#',
-      img: { src: '/assets/img/free-blog-3.png', alt: 'Cafeteria', loading: 'lazy' }
-    }
+      "title": "Drywall",
+      "description": "",
+      "href": "#",
+      "img": {
+        "src": "assets/img/servicos-drywall.jpg",
+        "alt": "Serviço de Drywall",
+        "loading": "lazy"
+      }
+    },
+    {
+      "title": "Forro PVC",
+      "description": "",
+      "href": "#",
+      "img": {
+        "src": "/assets/img/servicos-forro-pvc.jpg",
+        "alt": "Serviço de Forro PVC",
+        "loading": "lazy"
+      }
+    },
+    {
+      "title": "Vidros",
+      "description": "",
+      "href": "#",
+      "img": {
+        "src": "assets/img/servicos-vidros.jpg",
+        "alt": "Serviço de Vidros",
+        "loading": "lazy"
+      }
+    },
+    {
+      "title": "Piso Vinílico",
+      "description": "",
+      "href": "#",
+      "img": {
+        "src": "/assets/img/servicos-piso-vinilico.jpg",
+        "alt": "Serviço de Piso Vinílico",
+        "loading": "lazy"
+      }
+    },
+    // {
+    //   "title": "Porta Eucatex",
+    //   "description": "",
+    //   "href": "#",
+    //   "img": {
+    //     "src": "/assets/img/servico-porta-eucatex.png",
+    //     "alt": "Serviço de Porta Eucatex",
+    //     "loading": "lazy"
+    //   }
+    // }
   ]
 } = Astro.props;
 ---
@@ -54,7 +103,7 @@ const {
         <h2 class="text-2xl font-semibold text-base-content md:text-3xl lg:text-4xl">
           {heading}
         </h2>
-        <p class="text-xl text-base-content/80">{subheading}</p>
+        <!--<p class="text-xl text-base-content/80">{subheading}</p>-->
       </div>
 
       <!-- Cards Grid -->
@@ -69,20 +118,20 @@ const {
               />
               <div class="card-body gap-3">
                 <h3 class="card-title text-xl">{item.title}</h3>
-                <p class="mb-5">{item.description}</p>
-                <div class="card-actions">
-                  <a
-                    href={item.href ?? '#'}
-                    class="btn btn-gradient btn-primary"
-                    aria-label={`Read more about ${item.title}`}
-                  >
-                    Read More
-                    <span
-                      class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"
-                      aria-hidden="true"
-                    />
-                  </a>
-                </div>
+                <!--<p class="mb-5">{item.description}</p>-->
+                <!--<div class="card-actions">-->
+                <!--  <a-->
+                <!--    href={item.href ?? '#'}-->
+                <!--    class="btn btn-gradient btn-primary"-->
+                <!--    aria-label={`Read more about ${item.title}`}-->
+                <!--  >-->
+                <!--    Read More-->
+                <!--    <span-->
+                <!--      class="icon-[tabler&#45;&#45;arrow-right] size-5 rtl:rotate-180"-->
+                <!--      aria-hidden="true"-->
+                <!--    />-->
+                <!--  </a>-->
+                <!--</div>-->
               </div>
             </div>
           ))
