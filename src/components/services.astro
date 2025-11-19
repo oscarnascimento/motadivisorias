@@ -18,83 +18,36 @@ interface Props {
 
 const {
   id = 'services',
-  heading = 'Nossas Especialidades',
+  heading = 'Serviços Especializados',
   subheading = null,
   items = [
     {
-      "title": "Instalação de Divisórias Eucatex",
-      "description": "",
-      "href": "#",
-      "img": {
-        "src": "assets/img/servicos-divisorias-eucatex.jpg",
-        "alt": "Instalação de Divisórias Eucatex",
-        "loading": "lazy"
-      }
+      title: 'Divisórias Eucatex',
+      description: 'Montagem rápida e limpa para escritórios, estações de trabalho e ambientes corporativos.',
+      href: 'https://wa.me/559189359657',
+      img: { src: 'assets/img/servicos-divisorias-eucatex.jpg', alt: 'Instalação de divisórias Eucatex', loading: 'lazy' }
     },
     {
-      "title": "Divisórias/Forros de Gesso",
-      "description": "",
-      "href": "#",
-      "img": {
-        "src": "assets/img/servicos-gesso.jpg",
-        "alt": "Serviço de Divisórias/Forros de Gesso",
-        "loading": "lazy"
-      }
+      title: 'Forro PVC',
+      description: 'Praticidade, leveza e fácil manutenção para áreas comerciais e ambientes administrativos.',
+      href: 'https://wa.me/559189359657',
+      img: { src: '/assets/img/servicos-forro-pvc.jpg', alt: 'Instalação de forro PVC', loading: 'lazy' }
     },
     {
-      "title": "Drywall",
-      "description": "",
-      "href": "#",
-      "img": {
-        "src": "assets/img/servicos-drywall.jpg",
-        "alt": "Serviço de Drywall",
-        "loading": "lazy"
-      }
+      title: 'Drywall / Gesso',
+      description: 'Acabamento profissional, isolamento acústico e flexibilidade para projetos internos.',
+      href: 'https://wa.me/559189359657',
+      img: { src: 'assets/img/servicos-drywall.jpg', alt: 'Montagem de drywall e forros de gesso', loading: 'lazy' }
     },
     {
-      "title": "Forro PVC",
-      "description": "",
-      "href": "#",
-      "img": {
-        "src": "/assets/img/servicos-forro-pvc.jpg",
-        "alt": "Serviço de Forro PVC",
-        "loading": "lazy"
-      }
-    },
-    {
-      "title": "Vidros",
-      "description": "",
-      "href": "#",
-      "img": {
-        "src": "assets/img/servicos-vidros.jpg",
-        "alt": "Serviço de Vidros",
-        "loading": "lazy"
-      }
-    },
-    {
-      "title": "Piso Vinílico",
-      "description": "",
-      "href": "#",
-      "img": {
-        "src": "/assets/img/servicos-piso-vinilico.jpg",
-        "alt": "Serviço de Piso Vinílico",
-        "loading": "lazy"
-      }
-    },
-    // {
-    //   "title": "Porta Eucatex",
-    //   "description": "",
-    //   "href": "#",
-    //   "img": {
-    //     "src": "/assets/img/servico-porta-eucatex.png",
-    //     "alt": "Serviço de Porta Eucatex",
-    //     "loading": "lazy"
-    //   }
-    // }
+      title: 'Piso Vinílico',
+      description: 'Conforto, resistência e estética moderna para áreas comerciais e escritórios.',
+      href: 'https://wa.me/559189359657',
+      img: { src: '/assets/img/servicos-piso-vinilico.jpg', alt: 'Instalação de piso vinílico', loading: 'lazy' }
+    }
   ]
 } = Astro.props;
 ---
-
 <section id={id}>
   <div class="bg-base-100 py-8 sm:py-16 lg:py-24">
     <div class={`${siteConfig.container}`}>
@@ -107,7 +60,7 @@ const {
       </div>
 
       <!-- Cards Grid -->
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {
           items.map((item: ServiceItem) => (
             <div class="card-border card overflow-hidden shadow-none">
@@ -118,20 +71,21 @@ const {
               />
               <div class="card-body gap-3">
                 <h3 class="card-title text-xl">{item.title}</h3>
-                <!--<p class="mb-5">{item.description}</p>-->
-                <!--<div class="card-actions">-->
-                <!--  <a-->
-                <!--    href={item.href ?? '#'}-->
-                <!--    class="btn btn-gradient btn-primary"-->
-                <!--    aria-label={`Read more about ${item.title}`}-->
-                <!--  >-->
-                <!--    Read More-->
-                <!--    <span-->
-                <!--      class="icon-[tabler&#45;&#45;arrow-right] size-5 rtl:rotate-180"-->
-                <!--      aria-hidden="true"-->
-                <!--    />-->
-                <!--  </a>-->
-                <!--</div>-->
+                <p class="mb-2 text-sm text-base-content/80">{item.description}</p>
+                <div class="card-actions">
+                  <a
+                    href={item.href ?? '#'}
+                    target="_blank"
+                    class="btn btn-primary btn-sm"
+                    aria-label={`Solicitar orçamento de ${item.title}`}
+                  >
+                    Solicitar Orçamento
+                    <span
+                      class="icon-[tabler--arrow-right] size-4 rtl:rotate-180"
+                      aria-hidden="true"
+                    />
+                  </a>
+                </div>
               </div>
             </div>
           ))

@@ -46,10 +46,10 @@ export const siteConfig: SiteConfig = {
   creatorName: 'FlyonUI',
   demoName: 'Mota Divisórias',
   creatorUrl: 'https://flyonui.com',
-  templateName: 'Restaurant Landing',
+  templateName: 'Landing Divisórias e Forros',
   templateSuffix: 'Powered by FlyonUI',
   templateKeyword:
-    'astro, landing page, free, open-source, responsive, template, flyonui, html, responsive FlyonUI theme',
+    'mota divisórias, divisórias eucatex belém, forro pvc belém, drywall belém, instalação divisórias escritório, pisos vinilicos belém, construtora, construção civil, astro, flyonui',
 
   // URLs
   licenseUrl: 'https://flyonui.com/license/',
@@ -64,7 +64,7 @@ export const siteConfig: SiteConfig = {
   discordUrl: 'https://discord.com/invite/kBHkY7DekX',
 
   // Open Graph
-  ogTitle: 'Restaurant Landing Page by FlyonUI',
+  ogTitle: 'Mota Divisórias | Divisórias, Forros e Drywall em Belém - PA',
   ogImage:
     'https://cdn.flyonui.com/fy-assets/landing-page/template-page/dashboard/dashboard-default-1.png',
   ogType: 'website',

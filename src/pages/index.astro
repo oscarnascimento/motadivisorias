@@ -1,5 +1,6 @@
 ---
 import AboutUs from '@/components/about-us.astro';
+import CompanyInfo from '@/components/company-info.astro';
 import Contact from '@/components/contact.astro';
 import CTA from '@/components/cta.astro';
 import Faq from '@/components/faq.astro';
@@ -10,17 +11,19 @@ import Testimonials from '@/components/testimonial-main.astro';
 import Layout from '@/layouts/layout.astro';
 ---
 
-<Layout title="Landing Page">
+<Layout title="Mota Divisórias">
   <div class="bg-base-100">
     <main>
       <Hero />
       <AboutUs />
       <Services />
-      <!--<Testimonials />-->
-      <!--<CTA />-->
-      <!--<Team />-->
-      <!--<Contact />-->
-      <!--<Faq />-->
+      <CompanyInfo />
+      <!-- Opcional: adicionar depois -->
+      <!-- <Testimonials /> -->
+      <!-- <CTA /> -->
+      <!-- <Team /> -->
+      <!-- <Contact /> -->
+      <!-- <Faq /> -->
     </main>
   </div>
 </Layout>

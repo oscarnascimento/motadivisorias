@@ -1,0 +1,149 @@
+---
+// Company Information section component
+import { siteConfig } from '@/config';
+
+interface Props {
+  id?: string;
+  heading?: string;
+  subheading?: string;
+}
+
+const {
+  id = 'company-info',
+  heading = 'Entre em Contato',
+  subheading = 'Estamos prontos para atender você em Belém e região metropolitana'
+} = Astro.props;
+
+const companyInfo = {
+  phone: {
+    display: '(91) 98935-9657',
+    whatsapp: '559189359657',
+    icon: 'tabler--phone'
+  },
+  email: {
+    address: 'contato@motadivisorias.com.br',
+    icon: 'tabler--mail'
+  },
+  location: {
+    address: 'Rua São Paulo, 342 B',
+    city: 'Belém - PA',
+    cep: '66617-050',
+    icon: 'tabler--map-pin'
+  },
+  instagram: {
+    display: '@mota.divisorias',
+    url: 'https://www.instagram.com/mota.divisorias/',
+    icon: 'tabler--brand-instagram'
+  }
+};
+---
+
+<section id={id}>
+  <div class="bg-base-200 py-8 sm:py-16 lg:py-24">
+    <div class={`${siteConfig.container}`}>
+      <!-- Section Header -->
+      <div class="mb-12 space-y-4 text-center sm:mb-16">
+        <h2 class="text-2xl font-semibold text-base-content md:text-3xl lg:text-4xl">
+          {heading}
+        </h2>
+        <p class="text-lg text-base-content/80 md:text-xl">
+          {subheading}
+        </p>
+      </div>
+
+      <!-- Info Cards Grid -->
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+
+        <!-- WhatsApp Card -->
+        <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+          <div class="card-body items-center text-center gap-4">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+              <span class={`icon-[${companyInfo.phone.icon}] size-8 text-primary`} aria-hidden="true"></span>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-base-content mb-2">WhatsApp</h3>
+              <a
+                href={`https://wa.me/${companyInfo.phone.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-base-content/80 hover:text-primary transition-colors text-sm md:text-base"
+              >
+                {companyInfo.phone.display}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email Card -->
+        <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+          <div class="card-body items-center text-center gap-4">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+              <span class={`icon-[${companyInfo.email.icon}] size-8 text-primary`} aria-hidden="true"></span>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-base-content mb-2">E-mail</h3>
+              <a
+                href={`mailto:${companyInfo.email.address}`}
+                class="text-base-content/80 hover:text-primary transition-colors break-all text-sm md:text-base"
+              >
+                {companyInfo.email.address}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Location Card -->
+        <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+          <div class="card-body items-center text-center gap-4">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+              <span class={`icon-[${companyInfo.location.icon}] size-8 text-primary`} aria-hidden="true"></span>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-base-content mb-2">Localização</h3>
+              <p class="text-base-content/80 text-sm md:text-base">
+                {companyInfo.location.address}<br />
+                {companyInfo.location.city}<br />
+                <span class="text-xs">CEP: {companyInfo.location.cep}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instagram Card -->
+        <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+          <div class="card-body items-center text-center gap-4">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+              <span class={`icon-[${companyInfo.instagram.icon}] size-8 text-primary`} aria-hidden="true"></span>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-base-content mb-2">Instagram</h3>
+              <a
+                href={companyInfo.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-base-content/80 hover:text-primary transition-colors text-sm md:text-base"
+              >
+                {companyInfo.instagram.display}
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA Button -->
+      <div class="mt-12 text-center">
+        <a
+          href={`https://wa.me/${companyInfo.phone.whatsapp}?text=Olá, gostaria de solicitar um orçamento para divisórias`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary btn-lg"
+        >
+          Solicitar Orçamento
+          <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
