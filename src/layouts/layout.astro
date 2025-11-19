@@ -1,8 +1,4 @@
 ---
-interface Props {
-  title: string;
-  description?: string;
-}
 import Footer from '@/components/footer.astro';
 import Navbar from '@/components/navbar.astro';
 import ClientScripts from '@/components/client-script.astro';
@@ -10,21 +6,23 @@ import ScrollOnTop from '@/components/scroll-on-top.astro';
 import { siteConfig } from '@/config';
 import { generatePageTitle, generateMetaDescription } from '@/utils/meta-data';
 import '@/styles/global.css';
+import WhatsAppButton from '@/components/WhatsAppButton.astro';
 
+interface Props {
+  title: string;
+  description?: string;
+}
 const { title, description } = Astro.props;
-// Mantemos helpers mas sobrescrevemos com conteúdo SEO solicitado
 const pageTitle = 'Mota Divisórias | Divisórias, Forros e Drywall em Belém - PA';
 const metaDescription = 'Instalação de divisórias para escritório, forros PVC e drywall em Belém e Ananindeua. 40 anos de experiência com rapidez, montagem limpa e acabamento profissional.';
+const canonical = new URL(Astro.url.pathname.replace(/index\.html$/, ''), Astro.site ?? 'https://motadivisorias.com.br').toString();
 ---
 <!doctype html>
 <html lang="pt-BR" data-theme="light" dir="ltr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={metaDescription} />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <link rel="icon" type="image/x-icon" href={siteConfig.faviconUrl} />
     <meta name="generator" content={Astro.generator} />
     <meta name="keywords" content={siteConfig.templateKeyword} />
@@ -33,22 +31,22 @@ const metaDescription = 'Instalação de divisórias para escritório, forros PV
     <meta property="og:image" content={siteConfig.ogImage} />
     <meta property="og:description" content={metaDescription} />
     <meta property="og:site_name" content={siteConfig.demoName} />
-    <meta property="og:url" content={siteConfig.productPage} />
+    <meta property="og:url" content={canonical} />
+    <link rel="canonical" href={canonical} />
     <title>{pageTitle}</title>
-    <!-- Structured Data JSON-LD -->
     <script type="application/ld+json" is:inline>{JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'HomeAndConstructionBusiness',
       name: 'Mota Divisórias',
       image: 'https://cdn.flyonui.com/fy-assets/landing-page/template-page/dashboard/dashboard-default-1.png',
-      url: 'https://example.com',
+      url: canonical,
       telephone: '+55 91 8935-9657',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Belém',
+        streetAddress: 'Rua São Paulo, 342 B',
         addressLocality: 'Belém',
         addressRegion: 'PA',
-        postalCode: '66000-000',
+        postalCode: '66617-050',
         addressCountry: 'BR'
       },
       areaServed: ['Belém', 'Ananindeua'],
@@ -56,52 +54,17 @@ const metaDescription = 'Instalação de divisórias para escritório, forros PV
       foundingDate: '1985',
       slogan: 'Rapidez, limpeza e acabamento profissional em divisórias e forros'
     })}</script>
-    <!-- Font links -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Fira+Code:wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Simple Theme Initialization -->
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code:wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
     <script is:inline>
       (function () {
         try {
@@ -122,6 +85,7 @@ const metaDescription = 'Instalação de divisórias para escritório, forros PV
     <main>
       <slot />
     </main>
+    <WhatsAppButton />
     <Footer />
     <ScrollOnTop />
     <ClientScripts />

@@ -1,0 +1,17 @@
+---
+// Floating WhatsApp Button component
+const number = '559189359657';
+const message = 'Olá, vi o site da Mota Divisórias e gostaria de um orçamento.';
+const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+---
+<a
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Abrir conversa no WhatsApp para solicitar orçamento"
+  class="fixed bottom-4 right-4 z-[9999] inline-flex items-center justify-center rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2"
+  style="background-color:#25D366; width:3.5rem; height:3.5rem;"
+>
+  <span class="icon-[tabler--brand-whatsapp] text-white" style="width:1.75rem; height:1.75rem;" aria-hidden="true"></span>
+</a>
+
